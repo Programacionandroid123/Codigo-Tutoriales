@@ -12,6 +12,7 @@ import GoogleMaps
 class ViewController: UIViewController, GMSMapViewDelegate {
     
     var mapView: GMSMapView!
+    var cargoMapa: Bool = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -82,7 +83,10 @@ class ViewController: UIViewController, GMSMapViewDelegate {
     
     
     func mapViewDidFinishTileRendering(_ mapView: GMSMapView) {
-        agregarMarcadores()
+        if (!cargoMapa) {
+            cargoMapa = true
+            agregarMarcadores()
+        }
     }
 }
 
